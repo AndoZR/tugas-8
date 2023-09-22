@@ -39,6 +39,7 @@
                 <thead>
                     <tr>
                         <th>Nama</th>
+                        <th>Fakultas</th>
                         <th>Prodi</th>
                         <th>No. Telpon</th>
                         <th>Kelamin</th>
@@ -50,6 +51,7 @@
                     <?php foreach ($mahasiswa_data as $mahasiswa) : ?>
                         <tr>
                             <td><?php echo $mahasiswa['nama_mahasiswa']; ?></td>
+                            <td><?php echo $mahasiswa['fakultas']; ?></td>
                             <td><?php echo $mahasiswa['prodi']; ?></td>
                             <td><?php echo $mahasiswa['no_telpon']; ?></td>
                             <td><?php echo $mahasiswa['kelamin']; ?></td>

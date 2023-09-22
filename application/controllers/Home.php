@@ -33,28 +33,30 @@ class Home extends CI_Controller {
         $activeWorksheet = $spreadsheet->getActiveSheet();
         $activeWorksheet->setCellValue('A1', 'No.'); // ini buat nambah kolom di export excelnya
         $activeWorksheet->setCellValue('B1', 'Nama Mahasiswa'); 
-        $activeWorksheet->setCellValue('C1', 'Prodi'); 
-        $activeWorksheet->setCellValue('D1', 'No. Telpon'); 
-        $activeWorksheet->setCellValue('E1', 'Kelamin'); 
-        $activeWorksheet->setCellValue('F1', 'Alamat'); 
-        $activeWorksheet->setCellValue('G1', 'Tanggal Lahir'); 
+        $activeWorksheet->setCellValue('C1', 'Fakultas'); 
+        $activeWorksheet->setCellValue('D1', 'Prodi'); 
+        $activeWorksheet->setCellValue('E1', 'No. Telpon'); 
+        $activeWorksheet->setCellValue('F1', 'Kelamin'); 
+        $activeWorksheet->setCellValue('G1', 'Alamat'); 
+        $activeWorksheet->setCellValue('H1', 'Tanggal Lahir'); 
 
         $activeWorksheet->setCellValue('A2', '1');
         $activeWorksheet->setCellValue('B2', 'Ando Zamhariro Royan'); 
-        $activeWorksheet->setCellValue('C2', 'Sistem Informasi'); 
-        $activeWorksheet->setCellValue('D2', '081216532315'); 
-        $activeWorksheet->setCellValue('E2', 'Laki-Laki'); 
-        $activeWorksheet->setCellValue('F2', 'Jl. Melon 5/F-3'); 
-        $activeWorksheet->setCellValue('G2', '04/09/2023'); 
-        $activeWorksheet->setCellValue('A2', '1');
+        $activeWorksheet->setCellValue('C2', 'Fasilkom'); 
+        $activeWorksheet->setCellValue('D2', 'Sistem Informasi'); 
+        $activeWorksheet->setCellValue('E2', '081216532315'); 
+        $activeWorksheet->setCellValue('F2', 'Laki-Laki'); 
+        $activeWorksheet->setCellValue('G2', 'Jl. Melon 5/F-3'); 
+        $activeWorksheet->setCellValue('H2', '04/09/2023'); 
         
         $activeWorksheet->setCellValue('A3', '2');
         $activeWorksheet->setCellValue('B3', 'Python Bean'); 
-        $activeWorksheet->setCellValue('C3', 'Sistem Informasi'); 
-        $activeWorksheet->setCellValue('D3', '081216532315'); 
-        $activeWorksheet->setCellValue('E3', 'Perempuan'); 
-        $activeWorksheet->setCellValue('F3', 'Jl. Melon 5/F-5'); 
-        $activeWorksheet->setCellValue('G3', '11/09/2023'); 
+        $activeWorksheet->setCellValue('C3', 'faperta'); 
+        $activeWorksheet->setCellValue('D3', 'Sistem Informasi'); 
+        $activeWorksheet->setCellValue('E3', '081216532315'); 
+        $activeWorksheet->setCellValue('F3', 'Perempuan'); 
+        $activeWorksheet->setCellValue('G3', 'Jl. Melon 5/F-5'); 
+        $activeWorksheet->setCellValue('H3', '11/09/2023'); 
 
         $writer = new Xlsx($spreadsheet);
         $writer->save("php://output");
@@ -94,11 +96,12 @@ class Home extends CI_Controller {
 			$data=array();
 			for ($i=1; $i < $sheetcount; $i++) { 
 				$nama_mahasiswa=$sheetdata[$i][1];
-				$prodi=$sheetdata[$i][2];
-				$no_telpon=$sheetdata[$i][3];
-				$kelamin=$sheetdata[$i][4];
-				$alamat=$sheetdata[$i][5];
-				$tanggal_lahir=$sheetdata[$i][6];
+				$fakultas=$sheetdata[$i][2];
+				$prodi=$sheetdata[$i][3];
+				$no_telpon=$sheetdata[$i][4];
+				$kelamin=$sheetdata[$i][5];
+				$alamat=$sheetdata[$i][6];
+				$tanggal_lahir=$sheetdata[$i][7];
 
                 if (!is_numeric($no_telpon)) {
                     $this->session->set_flashdata('message',"
@@ -130,6 +133,7 @@ class Home extends CI_Controller {
                 
 				$data[]=array(
 					'nama_mahasiswa'=>$nama_mahasiswa,
+					'fakultas'=>$fakultas,
 					'prodi'=>$prodi,
 					'no_telpon'=>$no_telpon,
 					'kelamin'=>$kelamin,
@@ -161,22 +165,24 @@ class Home extends CI_Controller {
 		$sheet = $spreadsheet->getActiveSheet();
 		$sheet->setCellValue('A1', 'No.');
 		$sheet->setCellValue('B1', 'Nama Mahasiswa');
-		$sheet->setCellValue('C1', 'Prodi');
-		$sheet->setCellValue('D1', 'No. Telpon');
-		$sheet->setCellValue('E1', 'Kelamin');
-		$sheet->setCellValue('F1', 'Alamat');
-		$sheet->setCellValue('G1', 'Tanggal Lahir');
+		$sheet->setCellValue('C1', 'Fakultas');
+		$sheet->setCellValue('D1', 'Prodi');
+		$sheet->setCellValue('E1', 'No. Telpon');
+		$sheet->setCellValue('F1', 'Kelamin');
+		$sheet->setCellValue('G1', 'Alamat');
+		$sheet->setCellValue('H1', 'Tanggal Lahir');
 
 		$sn=2;
 		foreach ($MahasiswaList as $prod) {
 			//echo $prod->product_name;
 			$sheet->setCellValue('A'.$sn,$prod->mahasiswa_id);
 			$sheet->setCellValue('B'.$sn,$prod->nama_mahasiswa);
-			$sheet->setCellValue('C'.$sn,$prod->prodi);
-			$sheet->setCellValue('D'.$sn,$prod->no_telpon);
-			$sheet->setCellValue('E'.$sn,$prod->kelamin);
-			$sheet->setCellValue('F'.$sn,$prod->alamat);
-			$sheet->setCellValue('G'.$sn,$prod->tanggal_lahir);
+			$sheet->setCellValue('C'.$sn,$prod->fakultas);
+			$sheet->setCellValue('D'.$sn,$prod->prodi);
+			$sheet->setCellValue('E'.$sn,$prod->no_telpon);
+			$sheet->setCellValue('F'.$sn,$prod->kelamin);
+			$sheet->setCellValue('G'.$sn,$prod->alamat);
+			$sheet->setCellValue('H'.$sn,$prod->tanggal_lahir);
 			$sn++;
 		}
 
