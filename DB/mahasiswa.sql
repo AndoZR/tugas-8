@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 22, 2023 at 04:22 PM
+-- Generation Time: Sep 22, 2023 at 04:54 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.22
 
@@ -30,8 +30,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `mahasiswa` (
   `mahasiswa_id` int NOT NULL,
   `nama_mahasiswa` varchar(255) NOT NULL,
+  `fakultas` varchar(255) NOT NULL,
   `prodi` varchar(255) NOT NULL,
-  `no_telpon` int NOT NULL,
+  `no_telpon` varchar(20) NOT NULL,
   `kelamin` varchar(10) NOT NULL,
   `alamat` text NOT NULL,
   `tanggal_lahir` date NOT NULL,
@@ -43,23 +44,15 @@ CREATE TABLE `mahasiswa` (
 -- Dumping data for table `mahasiswa`
 --
 
-INSERT INTO `mahasiswa` (`mahasiswa_id`, `nama_mahasiswa`, `prodi`, `no_telpon`, `kelamin`, `alamat`, `tanggal_lahir`, `created_at`, `updated_at`) VALUES
-(45, 'Ando Zamhariro Royan', 'Sistem Informasi', 2147483647, 'Laki-Laki', 'Jl. Melon 5/F-3', '2023-09-04', '2023-09-22 16:13:41', '2023-09-22 16:13:41'),
-(46, 'Python Bean', 'Sistem Informasi', 2147483647, 'Perempuan', 'Jl. Melon 5/F-5', '2023-09-11', '2023-09-22 16:13:41', '2023-09-22 16:13:41'),
-(47, 'Ando Zamhariro Royan', 'Sistem Informasi', 2147483647, 'Laki-Laki', 'Jl. Melon 5/F-3', '2023-09-04', '2023-09-22 16:13:45', '2023-09-22 16:13:45'),
-(48, 'Python Bean', 'Sistem Informasi', 2147483647, 'Perempuan', 'Jl. Melon 5/F-5', '2023-09-11', '2023-09-22 16:13:45', '2023-09-22 16:13:45'),
-(49, 'Ando Zamhariro Royan', 'Sistem Informasi', 2147483647, 'Laki-Laki', 'Jl. Melon 5/F-3', '2023-09-04', '2023-09-22 16:20:33', '2023-09-22 16:20:33'),
-(50, 'Python Bean', 'Sistem Informasi', 2147483647, 'Perempuan', 'Jl. Melon 5/F-5', '2023-09-11', '2023-09-22 16:20:33', '2023-09-22 16:20:33'),
-(51, 'Ando Zamhariro Royan', 'Sistem Informasi', 2147483647, 'Laki-Laki', 'Jl. Melon 5/F-3', '2023-09-04', '2023-09-22 16:20:33', '2023-09-22 16:20:33'),
-(52, 'Python Bean', 'Sistem Informasi', 2147483647, 'Perempuan', 'Jl. Melon 5/F-5', '2023-09-11', '2023-09-22 16:20:33', '2023-09-22 16:20:33'),
-(53, 'Ando Zamhariro Royan', 'Sistem Informasi', 2147483647, 'Laki-Laki', 'Jl. Melon 5/F-3', '2023-09-04', '2023-09-22 16:20:55', '2023-09-22 16:20:55'),
-(54, 'Python Bean', 'Sistem Informasi', 2147483647, 'Perempuan', 'Jl. Melon 5/F-5', '2023-09-11', '2023-09-22 16:20:55', '2023-09-22 16:20:55'),
-(55, 'Ando Zamhariro Royan', 'Sistem Informasi', 2147483647, 'Laki-Laki', 'Jl. Melon 5/F-3', '2023-09-04', '2023-09-22 16:20:55', '2023-09-22 16:20:55'),
-(56, 'Python Bean', 'Sistem Informasi', 2147483647, 'Perempuan', 'Jl. Melon 5/F-5', '2023-09-11', '2023-09-22 16:20:55', '2023-09-22 16:20:55'),
-(57, 'Ando Zamhariro Royan', 'Sistem Informasi', 2147483647, 'Laki-Laki', 'Jl. Melon 5/F-3', '2023-04-09', '2023-09-22 16:21:19', '2023-09-22 16:21:19'),
-(58, 'Python Bean', 'Sistem Informasi', 2147483647, 'Perempuan', 'Jl. Melon 5/F-5', '2023-04-09', '2023-09-22 16:21:19', '2023-09-22 16:21:19'),
-(59, 'Ando Zamhariro Royan', 'Sistem Informasi', 2147483647, 'Laki-Laki', 'Jl. Melon 5/F-3', '2023-04-09', '2023-09-22 16:21:19', '2023-09-22 16:21:19'),
-(60, 'Python Bean', 'Sistem Informasi', 2147483647, 'Perempuan', 'Jl. Melon 5/F-5', '2023-11-09', '2023-09-22 16:21:19', '2023-09-22 16:21:19');
+INSERT INTO `mahasiswa` (`mahasiswa_id`, `nama_mahasiswa`, `fakultas`, `prodi`, `no_telpon`, `kelamin`, `alamat`, `tanggal_lahir`, `created_at`, `updated_at`) VALUES
+(1, 'Ando Zamhariro Royan', 'Fasilkom', 'Sistem Informasi', '081216532315', 'Laki-Laki', 'Jl. Melon 5/F-3', '2023-09-04', '2023-09-22 16:49:16', '2023-09-22 16:49:16'),
+(2, 'Python Bean', 'faperta', 'Sistem Informasi', '081216532315', 'Jl. Melon ', '', '2023-09-11', '2023-09-22 16:49:16', '2023-09-22 16:49:16'),
+(3, 'Ando Zamhariro Royan', 'Fasilkom', 'Sistem Informasi', '081216532315', 'Laki-Laki', 'Jl. Melon 5/F-3', '2023-09-04', '2023-09-22 16:49:46', '2023-09-22 16:49:46'),
+(4, 'Python Bean', 'faperta', 'Sistem Informasi', '081216532315', 'Perempuan', 'Jl. Melon 5/F-5', '2023-09-11', '2023-09-22 16:49:46', '2023-09-22 16:49:46'),
+(5, 'Ando Zamhariro Royan', 'Fasilkom', 'Sistem Informasi', '081216532315', 'Laki-Laki', 'Jl. Melon 5/F-3', '2023-09-04', '2023-09-22 16:50:05', '2023-09-22 16:50:05'),
+(6, 'Python Bean', 'faperta', 'Sistem Informasi', '081216532315', 'Jl. Melon ', '', '2023-09-11', '2023-09-22 16:50:05', '2023-09-22 16:50:05'),
+(7, 'Ando Zamhariro Royan', 'Fasilkom', 'Sistem Informasi', '081216532315', 'Laki-Laki', 'Jl. Melon 5/F-3', '2023-09-04', '2023-09-22 16:50:05', '2023-09-22 16:50:05'),
+(8, 'Python Bean', 'faperta', 'Sistem Informasi', '081216532315', 'Perempuan', 'Jl. Melon 5/F-5', '2023-09-11', '2023-09-22 16:50:05', '2023-09-22 16:50:05');
 
 --
 -- Indexes for dumped tables
@@ -79,7 +72,7 @@ ALTER TABLE `mahasiswa`
 -- AUTO_INCREMENT for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `mahasiswa_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `mahasiswa_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
